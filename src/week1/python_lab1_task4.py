@@ -13,26 +13,52 @@ Use helper functions:
 Print formatted summary in main.
 """
 
+
 def count_characters(text):
-    """Count non-space characters in a string."""
-    # TODO: implement
-    pass
+    """count non-space characters in string"""
+    count = 0
+    for ch in text:
+        if ch != " ":
+            count += 1
+    return count
+
 
 def count_words(text):
-    """Count number of words in a string."""
-    # TODO: implement
-    pass
+    """count number of words in string"""
+    words = text.split()
+    return len(words)
+
 
 def extract_numbers(text):
-    """Return list of integers found in text."""
-    # TODO: implement
-    pass
+    """find all numbers in text and return as list"""
+    parts = text.split()
+    nums = []
+    for p in parts:
+        if p.isdigit():
+            nums.append(int(p))
+    return nums
+
 
 def analyze_text(text):
-    """Perform text-based arithmetic analysis."""
-    # TODO: call helper functions and compute total, average, etc.
-    pass
+    """analyze given text and compute total and average of numbers"""
+    char_count = count_characters(text)
+    word_count = count_words(text)
+    numbers = extract_numbers(text)
+
+    if len(numbers) > 0:
+        total = sum(numbers)
+        avg = total / len(numbers)
+    else:
+        total = 0
+        avg = 0
+
+    print("Characters (no spaces):", char_count)
+    print("Words:", word_count)
+    print("Numbers found:", numbers)
+    print("Sum of numbers:", total)
+    print("Average of numbers:", round(avg, 2))
+
 
 if __name__ == "__main__":
-    # TODO: read input, call analyze_text(), and print results
-    pass
+    user_text = input("Enter a text: ")
+    analyze_text(user_text)
