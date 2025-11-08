@@ -1,29 +1,33 @@
 """
-Lab 3.1 – Simple Datasets and Aggregates
+Lab 3.1 | Simple Datasets and Aggregates
 
 Goals:
 - Create and manipulate Python lists and dictionaries.
 - Compute aggregates such as sum, average, max, and min.
-
-Instructions:
-1. Create a list `temperatures` with daily temperatures for one week.
-2. Create a dictionary `city_population` with at least 5 cities and their populations.
-3. Compute:
-   - The average temperature.
-   - The maximum and minimum population.
-   - The total population of all cities.
-4. Print your results in a clear, formatted way.
 """
 
-# TODO: Create the datasets - up to you to fill in the data
-temperatures = []
-city_population = {}
+# TODO: Create the datasets
+temperatures = [6, 8, 7, 10, 9, 11, 5]  # one week daily temperatures
+
+city_population = {
+    "Riga": 632670,
+    "Daugavpils": 80467,
+    "Liepaja": 68688,
+    "Jelgava": 55472,
+    "Jurmala": 49463,
+}
 
 # TODO: Compute aggregates
-average_temperature = 0
+average_temperature = sum(temperatures) / len(temperatures)
+
 largest_city = ""
 largest_population = 0
-total_population = 0
+for city, pop in city_population.items():
+    if pop > largest_population:
+        largest_city = city
+        largest_population = pop
+
+total_population = sum(city_population.values())
 
 # TODO: Print results
 print("Average temperature:", average_temperature)
